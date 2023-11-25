@@ -12,15 +12,15 @@ public class Chain {
         self.interceptors = interceptors
         self.requestHandler = client
     }
-    
+
     private let requestHandler: ChainRequestHandler
     private var interceptors: [Interceptor]
-    
+
     func start(request: Request) async throws -> (Data, URLResponse) {
         try await proceed(request: request)
     }
-    
-    func proceed(request: Request) async throws -> (Data, URLResponse) {
+
+    public func proceed(request: Request) async throws -> (Data, URLResponse) {
         guard !interceptors.isEmpty else { return try await requestHandler.call(with: request) }
         return try await interceptors.removeFirst().intercept(request: request, chain: self)
     }
