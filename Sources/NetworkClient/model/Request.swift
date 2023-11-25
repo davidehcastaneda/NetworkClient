@@ -15,7 +15,7 @@ public struct Request {
     public var headerParams: [String: String]
     public var body: Encodable?
 
-    init(
+    public init(
         path: String = "",
         dynamicPathArguments: [String] = [],
         method: Method = .GET,
