@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import NetworkRequest
 
 public protocol Interceptor {
-    func intercept(request: NetworkRequest, chain: Chain) async throws -> (Data, URLResponse)
+    func intercept(request: Request, chain: Chain) async throws -> (Data, URLResponse)
 }

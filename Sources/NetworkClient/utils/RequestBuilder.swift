@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import NetworkRequest
 
 protocol RequestBuilder {
-    func create(from baseUrl: String, and baseRequest: NetworkRequest) throws -> URLRequest
+    func create(from baseUrl: String, and baseRequest: Request) throws -> URLRequest
 }

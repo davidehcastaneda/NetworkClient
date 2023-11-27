@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import NetworkRequest
 
 class RequestBuilderV1: RequestBuilder {
 
@@ -16,7 +15,7 @@ class RequestBuilderV1: RequestBuilder {
         self.encoder = encoder
     }
 
-    func create(from baseUrl: String, and baseRequest: NetworkRequest) throws -> URLRequest {
+    func create(from baseUrl: String, and baseRequest: Request) throws -> URLRequest {
         return try baseUrl
             .appending(baseRequest.path)
             .substitutingPathParameters(with: baseRequest.dynamicPathArguments)
@@ -62,11 +61,7 @@ private extension URLRequest {
         return updated
     }
 
-    func forMethod(
-        _ method: NetworkRequest.Method,
-        addIfNeeded body: Encodable?,
-        with encoder: JSONEncoder
-    ) throws -> URLRequest {
+    func forMethod(_ method: Request.Method, addIfNeeded body: Encodable?, with encoder: JSONEncoder) throws -> URLRequest {
         guard method == .POST, let body = body else { return self }
         var updated = self
         updated.httpBody = try encoder.encode(body)
