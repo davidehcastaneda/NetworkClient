@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "networkrequest",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/davidehcastaneda/NetworkRequest",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0bd5c363d2a6efd071bbf9dafd37770b8a6b909a"
+      }
+    }
+  ],
+  "version" : 2
+}

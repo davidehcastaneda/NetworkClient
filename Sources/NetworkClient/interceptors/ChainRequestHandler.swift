@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import NetworkRequest
 
 protocol ChainRequestHandler {
-    func call(with request: Request) async throws -> (Data, URLResponse)
+    func call(with request: NetworkRequest) async throws -> (Data, URLResponse)
 }

@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import NetworkRequest
 
 public protocol NetworkClient {
-    func perform<T: Decodable>(_ request: Request) async throws -> T
+    func perform<T: Decodable>(_ request: NetworkRequest) async throws -> T
 }
